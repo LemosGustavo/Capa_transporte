@@ -1,0 +1,36 @@
+2019-11-07 19:58:04,135 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: momfus.
+2019-11-07 19:58:21,807 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: arboleo.
+2019-11-07 19:58:41,552 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1235 con el nombre de ususario: .
+2019-11-07 19:58:43,574 [main] ERROR clientechattranporte.ClienteChatTranporte - No se ha podido conectar con el servidor (Connection refused: connect).
+2019-11-07 19:58:43,575 [main] ERROR clientechattranporte.ConexionServidor - El socket no se creo correctamente. 
+2019-11-07 19:58:43,578 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 19:58:43,578 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 19:59:00,798 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1235 con el nombre de ususario: niania.
+2019-11-07 19:59:02,820 [main] ERROR clientechattranporte.ClienteChatTranporte - No se ha podido conectar con el servidor (Connection refused: connect).
+2019-11-07 19:59:02,821 [main] ERROR clientechattranporte.ConexionServidor - El socket no se creo correctamente. 
+2019-11-07 19:59:02,821 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 19:59:02,821 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 19:59:29,912 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: .
+2019-11-07 20:00:24,285 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: Momfus.
+2019-11-07 20:00:26,304 [main] ERROR clientechattranporte.ClienteChatTranporte - No se ha podido conectar con el servidor (Connection refused: connect).
+2019-11-07 20:00:26,305 [main] ERROR clientechattranporte.ConexionServidor - El socket no se creo correctamente. 
+2019-11-07 20:00:26,305 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 20:00:26,305 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 20:00:58,911 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: .
+2019-11-07 20:03:04,119 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: dfdgf.
+2019-11-07 20:03:19,970 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: gjhgjhg.
+2019-11-07 20:03:49,099 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1235 con el nombre de ususario: arboleo.
+2019-11-07 20:03:51,120 [main] ERROR clientechattranporte.ClienteChatTranporte - No se ha podido conectar con el servidor (Connection refused: connect).
+2019-11-07 20:03:51,121 [main] ERROR clientechattranporte.ConexionServidor - El socket no se creo correctamente. 
+2019-11-07 20:03:51,121 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 20:03:51,121 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 20:03:57,046 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: momfus.
+2019-11-07 20:05:44,248 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1235 con el nombre de ususario: momfus.
+2019-11-07 20:05:46,271 [main] ERROR clientechattranporte.ClienteChatTranporte - No se ha podido conectar con el servidor (Connection refused: connect).
+2019-11-07 20:05:46,272 [main] ERROR clientechattranporte.ConexionServidor - El socket no se creo correctamente. 
+2019-11-07 20:05:46,272 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 20:05:46,272 [main] ERROR clientechattranporte.ClienteChatTranporte - El socket no se creo correctamente. 
+2019-11-07 20:27:10,173 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1235 con el nombre de ususario: ggsahd.
+2019-11-07 20:27:20,017 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1235 con el nombre de ususario: jsjhss.
+2019-11-07 20:28:12,578 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: hsjhsjd.
+2019-11-07 20:28:23,407 [main] INFO  clientechattranporte.ClienteChatTranporte - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: jksjasd.
