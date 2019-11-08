@@ -1,27 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servidorchattransporte;
 
+import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-/**
- *
- * @author Momfu
- */
 public class ManejoPuerto extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ManejoPuerto
-     */
+    Logger log = null;
+    String field = null;
+    int puerto = 0;
+    int maximoConexiones = 0; // Maximo de conexiones simultaneas
+    ServerSocket servidor = null;
+    Socket socket = null;
+    public MensajesChat mensajes;
+
     public ManejoPuerto() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -38,6 +39,8 @@ public class ManejoPuerto extends javax.swing.JFrame {
         abrirPuerto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Abrir Puerto");
+        setLocation(new java.awt.Point(0, 0));
 
         jLabel1.setText("Puerto:");
 
@@ -45,6 +48,11 @@ public class ManejoPuerto extends javax.swing.JFrame {
         textPort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textPortActionPerformed(evt);
+            }
+        });
+        textPort.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textPortKeyPressed(evt);
             }
         });
 
@@ -60,23 +68,23 @@ public class ManejoPuerto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textPort, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(textPort, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(abrirPuerto)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(textPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textPort, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(abrirPuerto))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,18 +96,14 @@ public class ManejoPuerto extends javax.swing.JFrame {
 
     private void abrirPuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirPuertoActionPerformed
 
-        PropertyConfigurator.configure("log4j.properties");
-        Logger log = Logger.getLogger(ServidorChatTransporte.class);
-
-        String field = textPort.getText();
-        int puerto =  Integer.parseInt(field);
-        int maximoConexiones = 10; // Maximo de conexiones simultaneas
-        ServerSocket servidor = null;
-        Socket socket = null;
-        MensajesChat mensajes = new MensajesChat();
-
         try {
             // Se crea el serverSocket
+            PropertyConfigurator.configure("log4j.properties");
+            log = Logger.getLogger(ServidorChatTransporte.class);
+            field = textPort.getText();
+            puerto = Integer.parseInt(field);
+            maximoConexiones = 10;
+            mensajes = new MensajesChat();
             servidor = new ServerSocket(puerto, maximoConexiones);
 
             // Bucle infinito para esperar conexiones
@@ -107,10 +111,15 @@ public class ManejoPuerto extends javax.swing.JFrame {
                 log.info("Servidor a la espera de conexiones.");
                 socket = servidor.accept();
                 log.info("Cliente con la IP " + socket.getInetAddress().getHostName() + " conectado.");
+//                cerrarPuerto.addActionListener(new java.awt.event.ActionListener() {
+//                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                        cerrarPuertoActionPerformed(evt);
+//                    }
+//                });
 
                 ConexionCliente cc = new ConexionCliente(socket, mensajes);
                 cc.start();
-
+                // break;
             }
         } catch (IOException ex) {
             log.error("Error: " + ex.getMessage());
@@ -124,6 +133,13 @@ public class ManejoPuerto extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_abrirPuertoActionPerformed
+
+    private void textPortKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textPortKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            abrirPuerto.doClick();
+        }
+
+    }//GEN-LAST:event_textPortKeyPressed
 
     /**
      * @param args the command line arguments

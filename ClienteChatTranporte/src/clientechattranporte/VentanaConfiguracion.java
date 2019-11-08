@@ -1,5 +1,7 @@
 package clientechattranporte;
 
+import com.sun.glass.events.KeyEvent;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -15,6 +17,7 @@ public class VentanaConfiguracion extends JDialog {
     private JTextField tfUsuario;
     private JTextField tfHost;
     private JTextField tfPuerto;
+    private JButton btAceptar;
 
     /**
      * Constructor de la ventana de configuracion inicial
@@ -32,13 +35,31 @@ public class VentanaConfiguracion extends JDialog {
         tfHost = new JTextField("localhost");
         tfPuerto = new JTextField("1234");
 
-        JButton btAceptar = new JButton("Aceptar");
+        btAceptar = new JButton("Aceptar");
         btAceptar.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
             }
+        });
+
+        tfUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfUsuarioKeyPressed(evt);
+            }
+        });
+        tfHost.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfHostKeyPressed(evt);
+            }
+
+        });
+        tfPuerto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfPuertoKeyPressed(evt);
+            }
+
         });
 
         Container c = this.getContentPane();
@@ -85,6 +106,32 @@ public class VentanaConfiguracion extends JDialog {
         this.setResizable(false); // Evita que se pueda estirar la ventana
         this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE); // Deshabilita el boton de cierre de la ventana 
         this.setVisible(true);
+    }
+
+    private void tfUsuarioKeyPressed(java.awt.event.KeyEvent evt) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            tfHost.requestFocus();
+            tfHost.setBackground(Color.orange);
+            tfUsuario.setBackground(Color.white);
+
+        }
+    }
+
+    private void tfHostKeyPressed(java.awt.event.KeyEvent evt) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            tfPuerto.requestFocus();
+            tfPuerto.setBackground(Color.orange);
+            tfHost.setBackground(Color.white);
+        }
+    }
+
+    private void tfPuertoKeyPressed(java.awt.event.KeyEvent evt) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            tfUsuario.requestFocus();
+            tfUsuario.setBackground(Color.orange);
+            tfPuerto.setBackground(Color.white);
+            btAceptar.doClick();
+        }
     }
 
     public String getUsuario() {
